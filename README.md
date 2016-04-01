@@ -1,0 +1,2 @@
+# learningScala
+Teaching myself Scala
