@@ -96,9 +96,23 @@ println(List(List(1,2),List(3,4)).flatten)
 val nestedNumbers = List(List(1,2),List(3,4))
 println(nestedNumbers.flatMap(x => x.map(_ * 2)))
 
+//Generalaized funtional combinators, putting functions together
+def ourMap(numbers: List[Int], fn: Int=>Int): List[Int] = {
+  numbers.foldRight(List[Int]()) { (x:Int, xs:List[Int]) =>
+    fn(x) :: xs
+  }
+}
+ourMap(numbers, timesTwo(_))
 
 
+//MAP? Maps can be though of a list of pairs and keys so the function works on both the key and values in the map.
 
+val extensions = Map("Steve" -> 100,"Bob" -> 101, "Joe" -> 201)
+
+//filter out numbers higher thn 200
+println(extensions.filter((namePhone:(String, Int)) => namePhone._2 < 200))
+//to make it a bit nicer (dont have to use _.2  a positional accessor)
+println( extensions.filter({case (name, phone) => phone < 200}))
 
 
 
