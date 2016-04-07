@@ -126,6 +126,8 @@ def compress[A](l:List[A]):List[A] = l match {
 }
 println(compress(removeRepeat))
 
+//P09
+
 
 
 
